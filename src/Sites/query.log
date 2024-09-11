@@ -1,0 +1,164 @@
+
+
+Local time: Tue Sep  3 15:46:28 2024; corpuslist=DICKENS; 
+remote_host=localhost
+[word="question"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 15:47:44 2024; corpuslist=GERMAN-LAW; 
+remote_host=localhost
+[word="Frage"] cut 100 occurred 35 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 15:57:04 2024; corpuslist=GERMAN-LAW; 
+remote_host=localhost
+[word="braun"] cut 100 occurred 0 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 15:57:18 2024; corpuslist=GERMAN-LAW; 
+remote_host=localhost
+[word="weil"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 15:57:36 2024; corpuslist=GERMAN-LAW; 
+remote_host=localhost
+[word="Verfahren"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 16:01:48 2024; corpuslist=DICKENS; 
+remote_host=localhost
+ cut 100
+
+Local time: Tue Sep  3 16:01:54 2024; corpuslist=DICKENS; 
+remote_host=localhost
+[word="question"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 16:02:14 2024; corpuslist=DICKENS; 
+remote_host=localhost
+[word="question"] cut 1000 occurred 836 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 20:42:42 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"]Colloc: left=5, right=5, collocfilter=
+ occurred 8360 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 20:43:45 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"]Colloc: left=5, right=5, collocfilter=
+ occurred 8360 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 20:45:02 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"]Colloc: left=5, right=5, collocfilter=N.*
+ occurred 953 time(s). Total process time: 1 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:18:06 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:20:14 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[word="frage"] cut 100 occurred 0 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:20:19 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[word="Frage"] cut 100 occurred 35 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:21:25 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="children"] cut 100 occurred 100 time(s). Total process time: 1 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:21:43 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[word="Selection"] cut 100 occurred 0 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:21:50 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[word="vergleichen"] cut 100 occurred 2 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:21:57 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[lemma="vergleichen"] cut 100 occurred 3 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:22:09 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[lemma="vergleichen"] cut 100 occurred 3 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:50:07 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"] cut 100 occurred 100 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:50:19 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+[word="question"]Colloc: left=0, right=1, collocfilter=
+ occurred 836 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:50:22 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+MU(meet [lemma='question'] [lemma='whether'] -0 1) cut 100 occurred 20 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:50:34 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+MU(meet [lemma='question'] [lemma='arise'] -0 1) cut 100 occurred 4 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:50:40 2024; corpuslist=DICKENS; 
+remote_host=127.0.0.1
+MU(meet [lemma='question'] [lemma='on'] -0 1) cut 100 occurred 12 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:51:23 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+[word="Frage"]Colloc: left=0, right=1, collocfilter=
+ occurred 35 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:51:26 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='beanstanden'] -0 1) cut 100 occurred 3 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:51:34 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='von'] -0 1) cut 100 occurred 4 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:51:39 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='verweigern'] -0 1) cut 100 occurred 13 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:51:53 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='verweigern'] -0 1) cut 100 occurred 13 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:52:04 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='beanstanden'] -0 1) cut 100 occurred 3 time(s). Total process time: 0 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:52:13 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='von'] -0 1) cut 100 occurred 4 time(s). Total process time: 1 sec; CQP process time: 0 sec.
+
+
+Local time: Tue Sep  3 21:52:18 2024; corpuslist=GERMAN-LAW; 
+remote_host=127.0.0.1
+MU(meet [lemma='Frage'] [lemma='d'] -0 1) cut 100 occurred 22 time(s). Total process time: 0 sec; CQP process time: 0 sec.

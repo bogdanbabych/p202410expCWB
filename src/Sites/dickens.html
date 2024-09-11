@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Author" content="Serge Sharoff, hacked by Marco Baroni, ripped by Emiliano Guevara">
+<meta name="Keywords" content="Web Corpus">
+<link href="./corpus.css" rel="stylesheet" type="text/css">
+<TITLE>Testing CSAR</TITLE>
+
+<SCRIPT language="javascript" src="./jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+
+<BODY>
+
+<H2>Testing CSAR</H2>
+
+<FORM ACTION="http://localhost/~bogdan/cqp.pl" NAME="reqForm" METHOD="GET">
+<table WIDTH="100%">
+<col width="85%">
+<col width="15%">
+<tr>
+<td>
+</p>
+<INPUT type=text name=q size=50>&nbsp;&nbsp;<a href="javascript:getGrm('grm-en.html','q')">English tags</a>&nbsp;&nbsp;<a href="javascript:getGrm('grm-de.html','q')">German tags</a>&nbsp;&nbsp;
+<br>
+<INPUT type=radio name=c value="DICKENS" checked>Dickens
+<INPUT type=radio name=c value="GERMAN-LAW">German Law
+<INPUT type=text name=terminate size=4 value=100>
+
+<p>
+<INPUT type=radio name=c value="EUROPARL-EN">English Europarl, aligned with <INPUT type=checkbox name=parallel value="EUROPARL-DE">German Europarl<br>
+<INPUT type=radio name=c value="EUROPARL-DE">German Europarl, aligned with <INPUT type=checkbox name=parallel value="EUROPARL-EN">English Europarl
+<BR>
+<INPUT type=submit>&nbsp;&nbsp;
+<INPUT type=reset >
+Default: <INPUT type=radio name=da value="word" checked>word <INPUT type=radio name=da value="lemma">lemma
+<INPUT type=checkbox name=cqpsyntaxonly> CQP syntax only (<a href="https://www.ims.uni-stuttgart.de/documents/projekte/corpuswork-bench/CQPExamples.html" target="_blank">Examples</a>)
+&nbsp;&nbsp;<b><a href="./help.html">Getting help</a></b>
+</td>
+<td align=right>
+<a href="" target="_blank"><img src="./img/IUED-logo01.png" HEIGHT="100" alt="Institute for Translation and Interpreting, Universität Heidelberg"><BR>
+
+</a></td>
+</TR>
+</table>
+
+<H2>Set parameters of your query</H2>
+
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./jscript/printparams.js"></SCRIPT>
+
+
+<p>
+The interface by Serge Sharoff; s.sharoff leeds.ac.uk 
+
+</BODY>
+</HTML>

@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>English morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="lemmalist" size="20" multiple>
+<OPTION VALUE=S>S	noun
+<OPTION VALUE=V>V	verb
+<OPTION VALUE=A>A	adjective
+<OPTION VALUE=ADV>ADV	adverb
+<OPTION VALUE=PR>PR	preposition
+<OPTION VALUE=CONJ>CONJ	conjunction
+<OPTION VALUE=S-PRO>S-PRO	personal pronoun
+<OPTION VALUE=A-PRO>A-PRO	adjectival pronoun
+<OPTION VALUE=ADV-PRO>ADV-PRO	adverbial pronoun
+<OPTION VALUE=PART>PART	particle
+<OPTION VALUE=NUM>NUM	numerative
+<OPTION VALUE=PRAEDIC>PRAEDIC	predicative
+<OPTION VALUE=PARENTH>PARENTH	parenthetical
+<OPTION VALUE=A-NUM>A-NUM	ordinal number
+<OPTION VALUE=INTJ>INTJ	interjection
+<OPTION VALUE=INIT>INIT	Initials
+<OPTION VALUE=PRAEDIC-PRO>PRAEDIC-PRO	
+<OPTION VALUE=PUNCT>PUNCT	punctuation
+<OPTION VALUE=SENT>SENT	sentence end
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.lemmalist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://www.ruscorpora.ru/corpora-morph.html" target="_blank">Main grammatical classes from the Russian National Corpus</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

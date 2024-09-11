@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Russian morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="lemmalist" size="20" multiple>
+<OPTION VALUE="CATEGORY='Noun'">CATEGORY='Noun'
+<OPTION VALUE="CATEGORY='Verb'">CATEGORY='Verb'
+<OPTION VALUE="CATEGORY='Adjective'">CATEGORY='Adjective'
+<OPTION VALUE="CATEGORY='Pronoun'">CATEGORY='Pronoun'
+<OPTION VALUE="CATEGORY='Adverb'">CATEGORY='Adverb'
+<OPTION VALUE="CATEGORY='Adposition'">CATEGORY='Adposition' (prepositions only)
+<OPTION VALUE="CATEGORY='Conjunction'">CATEGORY='Conjunction'
+<OPTION VALUE="CATEGORY='Numeral'">CATEGORY='Numeral'
+<OPTION VALUE="CATEGORY='Particle'">CATEGORY='Particle'
+<OPTION VALUE="CATEGORY='Interjection'">CATEGORY='Interjection'
+<OPTION VALUE="CATEGORY='Abbreviation'">CATEGORY='Abbreviation'
+<OPTION VALUE="CATEGORY='Residual'">CATEGORY='Residual'
+<OPTION VALUE="pos=''">pos=','
+<OPTION VALUE="pos='SENT'">pos='SENT'
+<OPTION VALUE="pos='-'">pos='-'
+<OPTION VALUE="Animate='no'">Animate='no'
+<OPTION VALUE="Animate='yes'">Animate='yes'
+<OPTION VALUE="Aspect='biaspectual'">Aspect='biaspectual'
+<OPTION VALUE="Aspect='perfective'">Aspect='perfective'
+<OPTION VALUE="Aspect='progressive'">Aspect='progressive'
+<OPTION VALUE="Case='accusative'">Case='accusative'
+<OPTION VALUE="Case='dative'">Case='dative'
+<OPTION VALUE="Case='genitive'">Case='genitive'
+<OPTION VALUE="Case='instrumental'">Case='instrumental'
+<OPTION VALUE="Case='locative'">Case='locative'
+<OPTION VALUE="Case='nominative'">Case='nominative'
+<OPTION VALUE="Case='vocative'">Case='vocative'
+<OPTION VALUE="Case2='locative'">Case2='locative'
+<OPTION VALUE="Case2='partitive'">Case2='partitive'
+<OPTION VALUE="Coord_Type='sentence'">Coord_Type='sentence'
+<OPTION VALUE="Coord_Type='words'">Coord_Type='words'
+<OPTION VALUE="Definiteness='full-art'">Definiteness='full-art'
+<OPTION VALUE="Definiteness='short-art'">Definiteness='short-art'
+<OPTION VALUE="Degree='comparative'">Degree='comparative'
+<OPTION VALUE="Degree='positive'">Degree='positive'
+<OPTION VALUE="Degree='superlative'">Degree='superlative'
+<OPTION VALUE="Form='digit'">Form='digit'
+<OPTION VALUE="Form='letter'">Form='letter'
+<OPTION VALUE="Form='roman'">Form='roman'
+<OPTION VALUE="Formation='compound'">Formation='compound'
+<OPTION VALUE="Formation='simple'">Formation='simple'
+<OPTION VALUE="Gender='common'">Gender='common'
+<OPTION VALUE="Gender='feminine'">Gender='feminine'
+<OPTION VALUE="Gender='masculine'">Gender='masculine'
+<OPTION VALUE="Gender='neuter'">Gender='neuter'
+<OPTION VALUE="Number='paucal'">Number='paucal'
+<OPTION VALUE="Number='plural'">Number='plural'
+<OPTION VALUE="Number='singular'">Number='singular'
+<OPTION VALUE="Person='first'">Person='first'
+<OPTION VALUE="Person='second'">Person='second'
+<OPTION VALUE="Person='third'">Person='third'
+<OPTION VALUE="Sub_Type='negative'">Sub_Type='negative'
+<OPTION VALUE="Sub_Type='positive'">Sub_Type='positive'
+<OPTION VALUE="Syntactic_Type='adjectival'">Syntactic_Type='adjectival'
+<OPTION VALUE="Syntactic_Type='adverbial'">Syntactic_Type='adverbial'
+<OPTION VALUE="Syntactic_Type='nominal'">Syntactic_Type='nominal'
+<OPTION VALUE="Tense='future'">Tense='future'
+<OPTION VALUE="Tense='past'">Tense='past'
+<OPTION VALUE="Tense='present'">Tense='present'
+<OPTION VALUE="Type='auxiliary'">Type='auxiliary'
+<OPTION VALUE="Type='cardinal'">Type='cardinal'
+<OPTION VALUE="Type='collect'">Type='collect'
+<OPTION VALUE="Type='common'">Type='common'
+<OPTION VALUE="Type='coordinating'">Type='coordinating'
+<OPTION VALUE="Type='demonstrative'">Type='demonstrative'
+<OPTION VALUE="Type='indefinite'">Type='indefinite'
+<OPTION VALUE="Type='interrogative'">Type='interrogative'
+<OPTION VALUE="Type='main'">Type='main'
+<OPTION VALUE="Type='multiple'">Type='multiple'
+<OPTION VALUE="Type='negative'">Type='negative'
+<OPTION VALUE="Type='nonspecific'">Type='nonspecific'
+<OPTION VALUE="Type='ordinal'">Type='ordinal'
+<OPTION VALUE="Type='personal'">Type='personal'
+<OPTION VALUE="Type='possessive'">Type='possessive'
+<OPTION VALUE="Type='preposition'">Type='preposition'
+<OPTION VALUE="Type='proper'">Type='proper'
+<OPTION VALUE="Type='qualificative'">Type='qualificative'
+<OPTION VALUE="Type='reflexive'">Type='reflexive'
+<OPTION VALUE="Type='relative'">Type='relative'
+<OPTION VALUE="Type='subordinating'">Type='subordinating'
+<OPTION VALUE="VForm='conditional'">VForm='conditional'
+<OPTION VALUE="VForm='gerund'">VForm='gerund'
+<OPTION VALUE="VForm='imperative'">VForm='imperative'
+<OPTION VALUE="VForm='indicative'">VForm='indicative'
+<OPTION VALUE="VForm='infinitive'">VForm='infinitive'
+<OPTION VALUE="VForm='participle'">VForm='participle'
+<OPTION VALUE="Voice='active'">Voice='active'
+<OPTION VALUE="Voice='medial'">Voice='medial'
+<OPTION VALUE="Voice='passive'">Voice='passive'
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('&', getSelectedTexts(this.form.lemmalist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="/mocky/" target="_blank">Grammatical categories from Sharoff et al 2008</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

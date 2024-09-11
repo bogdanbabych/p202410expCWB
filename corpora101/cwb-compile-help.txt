@@ -1,0 +1,98 @@
+
+Usage:  cwb-encode -f <file> [options] -d <dir> [attribute declarations]
+        ... | cwb-encode [options] -d <dir> [attribute declarations]
+
+Reads verticalised text from stdin (or an input file with -f option) and
+converts it to the CWB binary format. Each TAB-separated column is encoded as a
+separate p-attribute. The first p-attribute is named "word" (unless changed
+with -p), additional columns must be declared with -P flags. S-attributes can be
+declared with -S (without annotations) or -V (with annotations) flags. In
+the input data, they must appear as opening and closing XML tags on separate
+lines. For each encoded attribute, one or more data files are created in the
+current directory (or any directory specified with -d). After encoding, use
+cwb-makeall to create the required index files and frequency lists, then
+compress them with cwb-huffcode and cwb-compress-rdx (or preferably use the
+cwb-make program from the CWB/Perl interface).
+
+NB: If you re-encode an existing corpus, be sure to delete all old data files,
+in particular the index and any compressed data files, before running
+cwb-encode!
+
+Attribute declarations:
+  -p <att>  change name of default p-attribute from "word" to <att>
+  -p -      no default p-attribute (all must be declared with -P)
+  -P <att>  declare additional p-attribute <att>
+     * append / to mark as feature set => values will be validated and
+       normalised
+  -S <att>  declare s-attribute <att> without annotations
+  -V <att>  declare s-attribute <att> with annotations
+     * append :<n> for automatic renaming of nested regions, :0 to drop nested
+       regions (highly recommended, otherwise every start tag will begin a new
+       flat region)
+     * attribute-value pairs in XML start tags can be auto-split into separate
+       s-attributes; the relevant attribute names are appended with + signs
+       (e.g., -S s:0+id+len stores XML tags like <s id="abc" len=42> in
+       attributes s, s_id and s_len)
+     * use -V to store original attribute-value pairs as single string in
+       addition to auto-splitting into individual s-attributes (e.g.
+       -V s:0+id+len)
+     * annotations and values of XML tag attributes can be feature sets; append
+       / to relevant attribute name for format validation and normalisation
+       (e.g. -S np:2+agr/+head)
+  -0 <att>  declare null s-attribute <att> (discards tags)
+
+Options:
+  -d <dir>  directory for data files created by cwb-encode
+     * this option always has to be specified (use -d . for current directory)
+  -f <file> read input from <file> [default is stdin; -f may be used repeatedly]
+     * gzipped files named *.gz will be decompressed automatically
+     * alias -t <file> is provided for backward compatibility
+  -F <dir>  read all files named *.vrt or *.vrt.gz/bz2 in directory <dir>
+     * files will be added to the corpus in alphabetical order (ASCII)
+     * it is not possible to scan subdirectories recursively
+  -R <rf>   create registry entry (named <rf>) listing all encoded attributes
+  -B        strip leading/trailing blanks from (input lines & token annotations)
+  -x        XML-aware (replace XML entities and ignore <!.. and <?..)
+  -s        skip empty lines in input data (recommended)
+  -L <att>  interpret blank lines as sentence boundaries stored in s-attribute <att>
+  -n        alternative input format with all token lines numbered in first column
+     * avoids ambiguities between token lines and XML tags
+     * malformed tags and junk lines are fatal errors, undeclared tags are ignored
+  -N <att>  numbered input format, but token numbers are encoded in p-attribute <att>
+  -9        discard XML tags for all undeclared s-attributes (auto null-attributes)
+  -U <str>  insert <str> for missing columns [default: "__UNDEF__"]
+  -b <n>    number of buckets in lexicon hash tables
+  -c <charset> specify corpus character set (instead of the default latin1)
+     * valid charsets: ascii ; latin1 .. latin9 ; arabic, greek, hebrew, cyrillic ; utf8
+     * iso-8859-1 .. iso-8859-15 are also accepted, but converted to canonical names above
+  -C        clean strings, replacing invalid bytes with '?' (not in UTF-8 mode)
+  -v        verbose mode (show progress messages while encoding)
+  -q        quiet mode (suppresses most warnings)
+  -D        debug mode (quiet, sorry, quite the opposite :-)
+  -h        this help page
+
+Part of the IMS Open Corpus Workbench v3.5.0
+
+
+
+bash-3.2$ cwb-make -help
+
+Usage:  cwb-make [options] CORPUS [<attributes>]
+
+Options:
+  -r <dir>       use registry directory <dir> [system default]
+     --registry=<dir>
+  -M <n>         use <n> MBytes of RAM for indexing [default: 75]
+     --memory=<n>
+  -V, --validate validate newly created files
+  -g <name>      put newly created files into group <name>
+     --group=<name>
+  -p <nnn>       set access permissions of created files to <nnn>
+     --permissions=<nnn>
+  -v, --verbose  print progress information
+  -D, --debug    activate debugging output
+  -h, --help     show this help page
+
+
+  
+

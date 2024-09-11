@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Author" content="Serge Sharoff, hacked by Marco Baroni, ripped by Emiliano Guevara, extended by Bogdan Babych">
+<meta name="Keywords" content="Web Corpus">
+<link href="./corpus.css" rel="stylesheet" type="text/css">
+<TITLE>Wissen im Kontext: Sprache und Denken in Natur- und Lebenswissenschaften</TITLE>
+
+<SCRIPT language="javascript" src="./jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+
+<BODY>
+
+<H2><a href="https://www.gs.uni-heidelberg.de/sprache02/felder/trn-wissen-im-kontext.html">Wissen im Kontext</a>: Sprache und Denken in Natur- und Lebenswissenschaften</H2>
+
+<FORM ACTION="http://localhost/~bogdan/cqp.pl" NAME="reqForm" METHOD="GET">
+<table WIDTH="100%">
+<col width="85%">
+<col width="15%">
+<tr>
+<td>
+</p>
+<INPUT type=text name=q size=50>&nbsp;&nbsp;<a href="javascript:getGrm('grm-en.html','q')">English tags</a>&nbsp;&nbsp;<a href="javascript:getGrm('grm-de.html','q')">German tags</a>&nbsp;&nbsp;
+<br>
+<INPUT type=radio name=c value="DEMO-PODC-DE">German health podcasts (demo corpus, 150k words)<br>
+
+<INPUT type=radio name=c value="DEMO-EMEA-DE" checked>German European Medicines Agency corpus, 5MW, aligned with <INPUT type=checkbox name=parallel value="DEMO-EMEA-EN">English EMEA corpus<br>
+<INPUT type=radio name=c value="DEMO-EMEA-EN">English European Medicines Agency corpus, 5MW, aligned with <INPUT type=checkbox name=parallel value="DEMO-EMEA-DE">German EMEA corpus<br>
+        
+<INPUT type=radio name=c value="DICKENS">Dickens<br>
+<INPUT type=radio name=c value="GERMAN-LAW">German Law<br>
+<INPUT type=text name=terminate size=4 value=100>
+
+<p>
+<!--  
+
+<INPUT type=radio name=c value="DEMO-EMEA-EN">English - European Medicines Agency - corpus  (demo corpus, 6M words)<br>
+<INPUT type=radio name=c value="DEMO-EMEA-DE">German - European Medicines Agency - corpus  (demo corpus, 6M words)<br>
+
+
+<INPUT type=radio name=c value="EUROPARL-EN">English Europarl, aligned with <INPUT type=checkbox name=parallel value="EUROPARL-DE">German Europarl<br>
+<INPUT type=radio name=c value="EUROPARL-DE">German Europarl, aligned with <INPUT type=checkbox name=parallel value="EUROPARL-EN">English Europarl
+
+-->
+<BR>
+<INPUT type=submit>&nbsp;&nbsp;
+<INPUT type=reset >
+Default: <INPUT type=radio name=da value="word" checked>word <INPUT type=radio name=da value="lemma">lemma
+<INPUT type=checkbox name=cqpsyntaxonly> CQP syntax only (<a href="https://www.ims.uni-stuttgart.de/documents/projekte/corpuswork-bench/CQPExamples.html" target="_blank">Examples</a>)
+&nbsp;&nbsp;<b><a href="./help.html">Getting help</a></b>
+</td>
+<td align=right>
+<a href="" target="_blank"><img src="./img/IUED-logo01.png" HEIGHT="100" alt="Institute for Translation and Interpreting, Universität Heidelberg"><BR>
+
+</a></td>
+</TR>
+</table>
+
+<H2>Set parameters of your query</H2>
+
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript" src="./jscript/printparams.js"></SCRIPT>
+
+
+<p>
+<h4> Corpus search infrastructure for the project , v1.0 (SCAR implementation) </h4>
+<pre>The interface by Serge Sharoff; s.sharoff leeds.ac.uk,  extended by Bogdan Babych, contact me <strong><img src="./img/at.gif"> (<a href="https://www.google.com/search?q=bogdan+babych">google search</a>) </strong>, if you have further queries.
+
+</BODY>
+</HTML>

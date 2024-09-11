@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>German morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="20" multiple>
+<OPTION VALUE=ADJA>ADJA atributives Adjektiv
+<OPTION VALUE=ADJD>ADJD adverbiales oder prädikatives Adjektiv
+<OPTION VALUE=ADV>ADV Adverb 
+<OPTION VALUE=APPR>APPR Präposition; Zirkumposition links
+<OPTION VALUE=APPRART>APPRART Präposition mit Artikel
+<OPTION VALUE=APPO>APPO Postposition
+<OPTION VALUE=APZR>APZR Zirkumpositionrechts
+<OPTION VALUE=ART>ART bestimmter oder unbestimmter Artikel
+<OPTION VALUE=CARD>CARD Kardinalzahl
+<OPTION VALUE=FM>FM Fremdsprachliches Material
+<OPTION VALUE=ITJ>ITJ Interjektion
+<OPTION VALUE=KOUI>KOUI unterordnende Konjunktion mit "zu"
+<OPTION VALUE=KOUS>KOUS unterordnende Konjunktion mit Satz
+<OPTION VALUE=KON>KON nebenordnende Konjunktion
+<OPTION VALUE=KOKOM>KOKOM Vergleichspartikel
+<OPTION VALUE=NN>NN normales Nomen 
+<OPTION VALUE=NE>NE Eigennamen
+<OPTION VALUE=PDS>PDS substituierendes Demonstrativ-pronomen
+<OPTION VALUE=PDAT>PDAT atribuierendes Demonstrativ-pronomen
+<OPTION VALUE=PIS>PIS substituierendes Indefinit-pronomen
+<OPTION VALUE=PIAT>PIAT atribuierendes Indefinit-pronomen ohne Determiner
+<OPTION VALUE=PIDAT>PIDAT atribuierendesIndefinit-pronomen mit Determiner
+<OPTION VALUE=PPER>PPER ireflexives Personalpronomen
+<OPTION VALUE=PPOSS>PPOSS substituierendes Posesiv-pronomen
+<OPTION VALUE=PPOSAT>PPOSAT atribuierendesPosesivpronomen
+<OPTION VALUE=PRELS>PRELS substituierend Relativpronomen
+<OPTION VALUE=PRELAT>PRELAT atribuierend Relativpronomen
+<OPTION VALUE=PRF>PRF reflexives Personalpronomen
+<OPTION VALUE=PWS>PWS substituierendes Interogativpronomen
+<OPTION VALUE=PWAT>PWAT atribuierendes Interogativpronomen
+<OPTION VALUE=PWAV>PWAV adverbiales Interogativ- oder Relativpronomen
+<OPTION VALUE=PAV>PAV Pronominaladverb
+<OPTION VALUE=PTKZU>PTKZU "zu" vor Infinitiv
+<OPTION VALUE=PTKNEG>PTKNEG Negationspartikel
+<OPTION VALUE=PTKVZ>PTKVZ abgetrennter Verbzusatz
+<OPTION VALUE=PTKANT>PTKANT Antwortpartikel
+<OPTION VALUE=PTKA>PTKA Partikel bei Adjektiv oder Adverb
+<OPTION VALUE=TRUNC>TRUNC Kompositions-Erstglied
+<OPTION VALUE="V.*">V.* alle Formen von allen Verben
+<OPTION VALUE=VVFIN>VVFIN finites Verb
+<OPTION VALUE=VVIMP>VVIMP Imperativ
+<OPTION VALUE=VVINF>VVINF Infinitiv
+<OPTION VALUE=VVIZU>VVIZU Infinitiv mit "zu"
+<OPTION VALUE=VVPP>VVPP Partizip Perfekt
+<OPTION VALUE=VAFIN>VAFIN finites Verb,aux
+<OPTION VALUE=VAIMP>VAIMP Imperativ,aux
+<OPTION VALUE=VAINF>VAINF Infinitiv,aux
+<OPTION VALUE=VAPP>VAPP Partizip Perfekt,aux
+<OPTION VALUE=VMFIN>VMFIN finites Verb,modal
+<OPTION VALUE=VMINF>VMINF Innitiv,modal
+<OPTION VALUE=VMPP>VMPP PartizipPerfekt,modal
+<OPTION VALUE=XY>XY Nichtwort,Sonderzeichen enthaltend
+<OPTION VALUE=$,>$, Komma
+<OPTION VALUE=$.>$. Satzbendende Interpunktion .?!;: 
+<OPTION VALUE=$(>$( sonstige Satzeichen; satzintern
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/DecisionTreeTagger.html" target="_blank">See the description of tagsets used by TreeTagger</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,512 @@
+
+
+
+
+directories:
+
+apache files:
+
+/Library/WebServer
+
+apache configuration:
+
+/private/etc/apache2
+(link:)
+/etc/apache2
+
+/private/etc/apache2/users/bogdan.conf
+/private/etc/apache2/httpd.conf
+/private/var/log/apache2/access_log
+/private/var/log/apache2/error_log
+
+/Users/bogdan/Sites
+
+
+
+testing / installing apache2
+
+
+sudo /usr/sbin/apachectl restart
+apachectl configtest
+sudo apachectl graceful
+sudo /usr/sbin/apachectl -k restart
+
+
+
+--midnight commander-- 
+Showing results for midnight commander Ctrl + Enter full path
+Search instead for midnight commander Ctr + Enter full path
+
+Get the file path, the name or both in the command line:
+<Ctrl>+<Shift>+<Enter> to get full path and name in the command line, or.
+<Alt>+<A> (or <Esc>+<A>) to get its path only, or.
+<Ctrl>+<Enter> or <Alt>+<Enter> (<Esc>+<Enter>) to get file name only.
+21 Dec 2016
+--
+>> esc + A
+
+====
+
+https://stackoverflow.com/questions/50180115/cgi-script-displayed-as-plain-text-in-apache2-localhost
+https://serverfault.com/questions/480606/apache2-server-not-executing-cgi-script
+https://stackoverflow.com/questions/58327503/under-catalina-macos-10-15-php-under-apache-has-restricted-access-to-some-files
+
+
+Setting up a local web server on macOS 14 “Sonoma”
+66
+15759
+Last modified Mar 15, 2024 7:41 AM
+
+	https://discussions.apple.com/docs/DOC-250007792
+
+
+https://scriptverse.dev/blog/mac-sonoma-apache-server.html
+
+
+
+
+
+
+====
+>>> google search >>>
+Setting up a local web server on macOS 14 “Sonoma” "python"
+
+>>>
+
+https://discussions.apple.com/docs/DOC-250007792
+You can make a difference in the Apple Support Community!
+
+When you sign up with your Apple ID, you can provide valuable feedback to other community members by upvoting helpful replies and User Tips.
+
+User profile for user: etresoftetresoft
+etresoft
+User level:Level 8
+(48,220 points)
+Setting up a local web server on macOS 14 “Sonoma”
+67
+15907
+Last modified Mar 15, 2024 7:41 AM
+Here is my definitive guide to getting a local web server running on macOS 14 “Sonoma”. This is meant to be a development platform so that you can build and test your sites locally, then deploy to an internet server. This User Tip only contains instructions for configuring the Apache server and Perl module. I have another User Tip for installing and configuring MySQL and email servers.
+
+
+
+Note: This user tip is specific to macOS 14 “Sonoma”. Pay attention to your OS version. There have been significant changes since earlier versions of macOS. Another note: These instructions apply to the client versions of OS X, not Server. Server does a few specific tricks really well and is a good choice for those. For things like database, web, and mail services, I have found it easier to just setup the client OS version manually.
+
+
+
+Important note: Over the past few years, 3rd party “package managers” like Homebrew and MacPorts have become extremely popular. This User Tip assumes that no 3rd party package manager has been installed. If you have installed Homebrew or similar, these instructions will not work. In that case, I recommend you contact Homebrew support.
+
+
+
+Requirements:
+
+
+
+Basic understanding of Terminal.app and how to run command-line programs.
+Basic understanding of web servers.
+Basic usage of vi. You can substitute nano if you want.
+
+
+Lines in bold are what you will have to type in. Replace <your short user name> with your short user name.
+
+
+
+Here goes... Enjoy!
+
+
+
+To get started, edit the Apache configuration file as root:
+
+
+
+sudo vi /etc/apache2/httpd.conf
+
+
+
+Sorry, but PHP is NOT included in Sonoma. Apple even includes the following note at line 187 of this file:
+
+
+
+#PHP was deprecated in macOS 11 and removed from macOS 12
+
+
+Unfortunately, Perl will also not work with Apache in Sonoma. Sonoma ships with a broken version of Perl that will not work with the mod_perl module. See this bug report: https://github.com/Perl/perl5/issues/17154
+
+
+
+So for now, we’ll go old-school and use the ancient mod_cgi method. As an added benefit, if you install your own PHP interpreter, you can run PHP scripts this way too. Your CGI scripts will run more slowly than with the mod_* versions.
+
+
+
+If you want to run CGI scripts, you will need to do the following:
+
+
+
+Enable mod_cgi by uncommenting line 174 changing:
+
+	#LoadModule cgi_module libexec/apache2/mod_cgi.so
+to
+
+	LoadModule cgi_module libexec/apache2/mod_cgi.so
+
+
+(Note that this is dependent on the state of the mpm_prefork_module, which is enabled by default. This is User Tip is meant to be as simple as possible. Don’t overcomplicate things.)
+
+
+
+Enable personal websites by uncommenting the following at line 184:
+
+#LoadModule userdir_module libexec/apache2/mod_userdir.so
+to
+
+LoadModule userdir_module libexec/apache2/mod_userdir.so
+
+
+(See below for an important new ACL change that are required in Sonoma for personal websites.)
+
+
+
+and do the same at line 521:
+
+#Include /private/etc/apache2/extra/httpd-userdir.conf
+to
+
+Include /private/etc/apache2/extra/httpd-userdir.conf
+
+
+Now save and quit.
+
+
+
+Open the file you just enabled above with:
+
+
+
+sudo vi /etc/apache2/extra/httpd-userdir.conf
+
+
+
+and uncomment the following at line 16:
+
+#Include /private/etc/apache2/users/*.conf
+to
+
+Include /private/etc/apache2/users/*.conf
+
+
+Save and exit.
+
+
+
+Lion and later versions no longer create personal web sites by default. If you already had a Sites folder, it should still be there. To create one manually, enter the following:
+
+
+
+mkdir ~/Sites
+
+
+
+echo "<html><body><h1>My site works</h1></body></html>" > ~/Sites/index.html.en
+
+
+
+While you are in /etc/apache2, double-check to make sure you have a user config file. It should exist at the path: /etc/apache2/users/<your short user name>.conf. 
+
+
+
+That file may not exist and if you upgrade from an older version, you may still not have it. If that file doesn't exist, you will need to create it with:
+
+
+
+sudo vi /etc/apache2/users/<your short user name>.conf
+
+
+
+Even if the file does exist, double check the content.  Use the following as the content:
+
+
+
+<Directory "/Users/<your short user name>/Sites/"> 
+
+  AddLanguage en .en 
+
+  AddHandler cgi-script .cgi .pl .php
+
+  Options Indexes MultiViews FollowSymLinks ExecCGI 
+
+  AllowOverride None 
+
+  Require host localhost
+
+</Directory>
+
+
+
+You may need to make changes to this configuration to enable things such as additional languages, access from devices other than localhost, and .htaccess file overrides.
+
+
+
+There were new security defaults in macOS 13 “Ventura”. By default, other users have no access to another user's home directory. This includes the special “_www” user that is running the Apache web server. Run the following command to give the Apache web server access to the Sites folder in your home directory.
+
+
+
+chmod +a "_www allow execute" ~
+
+
+
+This will add an ACL permission to your home directory that will allow the Apache web server access to all subdirectories inside your home directory. The permissions on those subdirectories may allow, or deny, access to other users such as the _www user. If you wanted to be extra paranoid, you could change the permissions on all subdirectories (except for the “Sites” folder, obviously) to disallow any access from other users. But this User Tip is a minimal setup guide, so we will just do the minimum here.
+
+
+
+Now you are ready to turn on Apache itself. But first, do a sanity check. Sometimes copying and pasting from an internet forum can insert invisible, invalid characters into config files. Check your configuration by running the following command in the Terminal:
+
+
+
+apachectl configtest
+
+
+
+If this command returns "Syntax OK" then you are ready to go. It may also print a warning saying "httpd: Could not reliably determine the server's fully qualified domain name". You could fix this by setting the ServerName directive in /etc/apache2/httpd.conf and adding a matching entry into /etc/hosts. But for a development server, you don't need to do anything. You can just ignore that warning. You can safely ignore other warnings too.
+
+
+
+Turn on the Apache httpd service by running the following command in the Terminal:
+
+
+
+sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+
+
+
+This command could fail with an error: “Load failed: 37: Operation already in progress”. If so, that means your web server is already running from a previous operating system version. However, you will still need to bump Apache to reload with the configuration changes you’ve just made. Use the following command:
+
+
+
+sudo apachectl graceful
+
+
+
+In Safari, navigate to your web site by entering the following into Safari's address bar:
+
+
+
+http://localhost/
+
+
+
+It should say:
+
+
+
+It works!
+
+
+
+Now try your user home directory by entering the following into Safari's address bar:
+
+
+
+http://localhost/~<your short user name>
+
+
+
+It should say:
+
+
+
+My site works
+
+
+
+To test Perl, try something similar. Create a Perl test file with:
+
+
+
+vi ~/Sites/info.pl
+
+
+
+Use the following as the content:
+
+
+
+#!/usr/bin/perl
+
+
+
+use CGI;
+
+
+
+my $cgi = CGI->new;
+
+
+
+print $cgi->header( -type => 'text/plain' );
+
+
+
+print $ENV{SERVER_SOFTWARE};
+
+
+
+And test it by entering the following into Safari's address bar:
+
+
+
+http://localhost/~<your short user name>/info.pl
+
+
+
+Make sure the file can be executed by the _www user by doing this:
+
+
+
+chmod ugo+x ~/Sites/info.pl
+
+
+
+You should see the following string:
+
+
+
+Apache/2.4.56 (Unix)
+
+
+Doing the same for PHP is left as an exercise for the reader. You will have to download and install a PHP interpreter. For extra credit, try something more modern like Python or Rust.
+
+
+
+If you want to setup MySQL, see my User Tip on Installing MySQL.
+
+
+
+If you want to make further changes to your Apache system or user config files, you will need to restart the Apache server with:
+
+
+
+sudo apachectl graceful
+
+
+
+Most important note: This configuration is only useful for testing HTML/CSS layouts and some Javascript. Please don’t write any new websites using Perl or PHP. That kind of web architecture is going to be painful in the modern world. Instead, look for content management systems, static site builders, or even GitHub. If you want to deploy a real web site, you’ll do that on AWS. You can even use AWS Lightsail to get started with a more traditional web hosting architecture. But eventually you’ll want to transition to Cloud Front. AWS SSL certificates alone are worth the effort.
+
+
+
+==============
+
+
+
+
+https://blog.scriptmint.com/my-macbook-setup-for-development-2024-caefe65d8bfb
+
+
+
+----
+My MacBook Setup for Development (2024)
+ScriptMint
+ScriptMint
+
+·
+Follow
+
+8 min read
+·
+Jan 15, 2024
+2.8K
+
+
+49
+
+
+
+
+
+For the past two years, I’ve been sharing my MacBook setup for development, and I’m excited to present the 2024 edition. The previous editions (2022 & 2023) gained popularity with over 80k reads, and I hope this one proves helpful as well.
+
+
+MacBook Setup for Development 2024
+Hi, I’m Vinay Kesharwani, the Solo Founder of ScriptMint. I am a Full Stack Developer working with Laravel, Vue.js & Tailwind CSS. Currently, I’m working on a Self-Hosted Digital Suite promint.app, a platform for setting up digital stores and selling items with zero commission.
+
+My MacBook Pro 2019 Intel Model has been retired, and I’ve upgraded to the MacBook Pro 2023 M3 Max with 36GB RAM + 500GB SSD. This time, I opted for the 14" model, which is quite handy and easy to carry.
+
+
+MacBook M3 Max
+You might argue that 500GB of storage is not enough, but I usually don’t keep photos or videos on my MacBook. I use Google Photos to back up all my photos and videos, where I have 2TB of storage. Trust me, 500GB is more than enough for development-related stuff.
+
+The MacBook Intel 2019 model is still working fine, except for the reduced battery life, now lasting only 1 hour. This year, as I plan to start working on Mobile App Development, I needed a machine with good battery life and performance. So, I chose the M3 Max model.
+
+The 2019 model was one of the best investments I made with multifold returns, and I’m confident that this one will be even better.
+
+I’ve been using the MacBook M3 Max for the past two months, and I’m quite happy with its performance. I get around 8–10 hours of battery life during my peak work hours, and I haven’t heard the fan noise yet, which is quite impressive. I rarely shut down my MacBook, perhaps only once or twice a month, as long as it continues to operate smoothly.
+
+My MacBook is running Sonoma 14.2.1, and I use it with Dark Mode. As I mention every time, I’m a big fan of Dark Mode, and I use it everywhere. It’s easy on the eyes, and I love it. Almost all the apps I regularly use are in Dark Mode.
+
+I’ve created two volumes on my MacBook — one for work and another for personal data.
+
+
+I have set some widgets on the desktop like Todoist, Calendar, Clock, Weather, etc to quickly access them. I use to keep my desktop clean, and I don’t keep any files on it. Similarly, the downloads and documents folders are also almost empty. I use the Downloads folder to download files, and I move them to the appropriate folder once I’m done with them.
+
+
+I still use Apple’s Focus Mode to block all notifications during my work hours. I’ve created a custom Focus Mode for my work hours, and it’s working great for me. This focus mode is shared across all my Apple devices. The MacBook and iPhone continuity features like copy & paste, AirDrop, Handoff, etc. are pretty useful and I use them daily.
+
+Now, let’s talk about the apps I use daily.
+
+RayCast is one of the best productivity apps I’ve ever used. It’s a Spotlight replacement for Mac and is super fast. I use it to open apps, run scripts, search files, etc. It’s a must-have app for every Mac user. I’ve been using it for 18–20 months and never went back to Spotlight. The shortcut cmd + space is set for RayCast. RayCast is FREE for personal use, and you should definitely give it a try.
+
+The second app I would recommend is SetApp. It’s a subscription-based service that gives you access to 200+ apps for just 10 dollars per month, and it’s worth every penny. I’ve been using SetApp for almost 1 and a half years and have installed more than 20+ apps that I need to use from time to time as per requirement. Anytime I need a new app, I just search for it on SetApp, and most probably it’s already there. I don’t need to pay anything extra for that.
+
+Next, I’ve set up my MacBook in such a way that I can quickly switch between apps. I keep several apps running, and they are set up in a fixed order. It helps me quickly switch between apps using a three-finger swipe gesture. I’ve set up the following apps in order:
+
+
+The first app in the order is Spark Mail — I’ve been using it for a year and am quite happy with it. I use it to manage multiple email accounts, and Spark is the best app for that. I’ve scheduled notifications three times a day for my emails, helping me focus on my work. The built-in AI features of Spark are quite impressive, aiding me in quickly replying to emails or proofreading them. There are several other features like Gate Keeper, Smart Inbox, Labels, Scheduling, etc., which I use daily. The best thing is Spark is already included in SetApp, and I don’t need to pay anything extra for that.
+
+I use the zero inbox approach for both Emails and WhatsApp. Even though I handle five different email accounts, I keep the number of emails on my page quite low. I simply archive emails once I’ve read them or completed the tasks. This practice is crucial to stay focused on what’s still pending.
+
+Treating each email as a task, completing it, and then archiving it helps maintain a clear list of pending emails/messages.
+
+
+The second app in the order is Notion — It’s like my personal diary, and I don’t pay anything for it as every feature I need is already available in the FREE version. I use it to write my daily journal, notes, ideas, project details, etc. I can access all this data from different devices anytime and from any place. It helped me eliminate the use of multiple apps for different purposes, and I’m quite satisfied with it.
+
+
+Next is my Desktop — It contains 4–5 apps in the stage manager. I keep it three-fourths of my screen, helping me quickly switch between apps. I keep my terminal, SSH client, Finder, and Tinkerwell in the stage manager.
+
+
+Terminal — I use the Warp editor, which is free and a modern terminal for MacOS. I’ve been using it for around 5–6 months and can’t go back to iTerm. It is fast, modern, and has all the features I need. I keep 4–5 tabs open in my terminal, helping me quickly switch between them. The AI feature of the Warp editor is quite impressive, helping me quickly run commands.
+
+
+SSH Client — I use Termius, which offers both FREE and PAID plans. I am using the FREE plan, and it is more than enough for me. I manage multiple servers, and Termius helps me quickly connect to them. I have set up all my servers in Termius, and I can quickly connect to them with one click. Termius also offers an SFTP client, which I use to transfer files between my local and remote servers.
+
+
+The next app in the order is VS Code, I use it to write all my code, whether it is a PHP project or Flutter. I have installed several extensions in VS Code that help me write code faster. The layout and color schemes are also set up according to my requirements. I like a clean and minimal UI, and it helps me focus on my code. Whenever I run tests, I open the terminal in VS Code and run the tests.
+
+This is what my VS Code looks like during development. Pretty clean! Right?
+
+
+The reason for putting VS code and Terminal in the middle is that I can quickly move back and forth during my development.
+
+After VS Code, I use Google Chrome as my default browser. I restarted using it after getting the M3 MacBook. Last year I started using Safari due to some performance issues with Intel MacBook, but now I switched back to Google Chrome. I am not a big fan of opening tens of tabs. I open 4–5 tabs at max, helping me focus on my work. I have pinned some of the tabs that I use daily like Todoist, Trello, ChatGPT, etc., helping me quickly access them.
+
+And the last app is GitHub Desktop. I don’t like remembering commands and typing every time. GitHub Desktop provides a beautiful UI for all the operations needed to manage a project repository.
+
+These are the apps that are always running in my system. The fix order of setting the app allows me to move seamlessly between the apps.
+
+Here is some Laravel-related development tools I use in my system.
+
+I didn’t use homebrew for installing development tools like PHP or composer. I used Laravel Herd which is a click PHP development environment for MacOS available for FREE. It includes Ngnix, DNSMasq, PHP, etc all in one package. Updating PHP is no longer a headache for me. Herd includes multiple PHP versions, and I can update it or switch between them with one click.
+
+
+For MySQL database, I used DBngin, which supports multiple database drivers like MySQL, PostgreSQL, Redis etc.
+
+Both Herd and DBngin has helped to setup the development environment within few clicks — perfect for Laravel developers.
+
+I love this setup, and I always mention, I find myself falling in love with my system every single day because of it.
+
+I’m currently in the process of constructing my new office, and I anticipate moving in within the next 2–3 months. I’ll be sure to share photos of the completed office once it’s ready, along with details about the setup soon!
+
+Here is my website in case you would like to check my portfolio: https://scriptmint.com
+
+Do share how and what kind of setup you have on your system.
+
+
+

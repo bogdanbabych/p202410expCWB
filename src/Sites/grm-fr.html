@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>French morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="20" multiple>
+<OPTION VALUE="ABR">ABR	abreviation
+<OPTION VALUE="ADJ">ADJ	adjective
+<OPTION VALUE="ADV">ADV	adverb
+<OPTION VALUE="DET:ART">DET:ART	article
+<OPTION VALUE="DET:POS">DET:POS	possessive pronoun (ma, ta, ...)
+<OPTION VALUE="INT">INT	interjection
+<OPTION VALUE="KON">KON	conjunction
+<OPTION VALUE="NAM">NAM	proper name
+<OPTION VALUE="NOM">NOM	noun
+<OPTION VALUE="NUM">NUM	numeral
+<OPTION VALUE="PRO">PRO	pronoun
+<OPTION VALUE="PRO:DEM">PRO:DEM	demonstrative pronoun
+<OPTION VALUE="PRO:IND">PRO:IND	indefinite pronoun
+<OPTION VALUE="PRO:PER">PRO:PER	personal pronoun
+<OPTION VALUE="PRO:POS">PRO:POS	possessive pronoun (mien, tien, ...)
+<OPTION VALUE="PRO:REL">PRO:REL	relative pronoun
+<OPTION VALUE="PRP">PRP	preposition
+<OPTION VALUE="PRP:det">PRP:det	preposition plus article (au,du,aux,des)
+<OPTION VALUE="PUN">PUN	punctuation
+<OPTION VALUE="PUN:cit">PUN:cit	punctuation citation
+<OPTION VALUE="SENT">SENT	sentence tag
+<OPTION VALUE="SYM">SYM	symbol
+<OPTION VALUE="VER.*">VER.*	all verb forms
+<OPTION VALUE="VER:cond">VER:cond	verb conditional
+<OPTION VALUE="VER:futu">VER:futu	verb futur
+<OPTION VALUE="VER:impe">VER:impe	verb imperative
+<OPTION VALUE="VER:impf">VER:impf	verb imperfect
+<OPTION VALUE="VER:infi">VER:infi	verb infinitive
+<OPTION VALUE="VER:pper">VER:pper	verb past participle
+<OPTION VALUE="VER:ppre">VER:ppre	verb present participle
+<OPTION VALUE="VER:pres">VER:pres	verb present
+<OPTION VALUE="VER:simp">VER:simp	verb simple past
+<OPTION VALUE="VER:subi">VER:subi	verb subjunctive imperfect
+<OPTION VALUE="VER:subp">VER:subp	verb subjunctive present
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/DecisionTreeTagger.html" target="_blank">See the description of tagsets used by TreeTagger</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

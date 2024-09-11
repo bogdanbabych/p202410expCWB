@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Portuguese morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="15" multiple>
+<OPTION VALUE=ADJ>ADJ	Adjetivo
+<OPTION VALUE=ADV>ADV	Advérbio
+<OPTION VALUE=CARD>CARD	Número Cardinal / Ordinal
+<OPTION VALUE=DET>DET	Determinante
+<OPTION VALUE=I>I	Interjeição	 				
+<OPTION VALUE=NOM>NOM	Nome Comum / Próprio
+<OPTION VALUE=P>P	Pronome
+<OPTION VALUE=PREP\+DET>PREP+DET	(por exemplo: “do”, “das”, etc.)
+<OPTION VALUE=PREP>PREP	Preposição					
+<OPTION VALUE=SENT>SENT	Separadores de oraçoes 		
+<OPTION VALUE=V\+P>V+P	(por exemplo: “levou-me”, “disse-lhe”, etc.)
+<OPTION VALUE=V>V	Verbo						
+<OPTION VALUE=VIRG>VIRG	Separadores dentro da oraçao 	 
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+As defined by <a href="http://gramatica.usc.es/~gamallo/tagger/tagset.rtf" target="_blank">Pablo Gamallo</a> for the<a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/" target="_blank">TreeTagger tagset</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Polish morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="15" multiple>
+<OPTION VALUE=subst  >subst  
+<OPTION VALUE=interp >interp 
+<OPTION VALUE=verb   >verb   
+<OPTION VALUE=adj    >adj    
+<OPTION VALUE=prep   >prep   
+<OPTION VALUE=conj   >conj   
+<OPTION VALUE=qub    >qub    
+<OPTION VALUE=adv    >adv    
+<OPTION VALUE=num    >num    
+<OPTION VALUE=pred   >pred   
+<OPTION VALUE=depr   >depr   
+<OPTION VALUE=siebie >siebie 
+<OPTION VALUE=adja   >adja   
+<OPTION VALUE=adjp   >adjp   
+<OPTION VALUE=ppron3 >ppron3 
+<OPTION VALUE=ppron12>ppron12
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+As defined by <a href="http://nlp.ipipan.waw.pl/~wolinski/morfeusz/znakowanie.pdf" target="_blank">Marcin Wolinski</a> for the IPI PAN corpus.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

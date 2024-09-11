@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>German morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="20" multiple>
+<OPTION VALUE=ADJ>ADJ		adjective
+<OPTION VALUE=ADV>ADV		adverb (excluding -mente forms)
+<OPTION VALUE=ADV:mente>ADV:mente	adveb ending in -mente
+<OPTION VALUE=ART>ART		article
+<OPTION VALUE=ARTPRE>ARTPRE		preposition + article
+<OPTION VALUE=AUX:fin>AUX:fin		finite form of auxiliary
+<OPTION VALUE=AUX:fin:cli>AUX:fin:cli	finite form of auxiliary with clitic
+<OPTION VALUE=AUX:geru>AUX:geru	gerundive form of auxiliary
+<OPTION VALUE=AUX:geru:cli>AUX:geru:cli	gerundive form of auxiliary with clitic
+<OPTION VALUE=AUX:infi>AUX:infi	infinitival form of auxiliary
+<OPTION VALUE=AUX:infi:cli>AUX:infi:cli	infinitival form of auxiliary with clitic
+<OPTION VALUE=AUX:ppast>AUX:ppast	past participle of auxiliary
+<OPTION VALUE=AUX:ppre>AUX:ppre	present participle of auxiliary
+<OPTION VALUE=CHE>CHE		che
+<OPTION VALUE=CLI>CLI		clitic
+<OPTION VALUE=CON>CON		conjunction
+<OPTION VALUE=DET:demo>DET:demo	demonstrative determiner
+<OPTION VALUE=DET:indef>DET:indef	indefinite determiner
+<OPTION VALUE=DET:num>DET:num		numeral determiner
+<OPTION VALUE=DET:poss>DET:poss	possessive determiner
+<OPTION VALUE=DET:wh>DET:wh		wh determiner
+<OPTION VALUE=NEG>NEG		negation
+<OPTION VALUE=NOCAT>NOCAT		non-linguistic element
+<OPTION VALUE=NOUN>NOUN		noun
+<OPTION VALUE=NPR>NPR		proper noun
+<OPTION VALUE=NUM>NUM		number
+<OPTION VALUE=PRE>PRE		preposition
+<OPTION VALUE=PRO:demo>PRO:demo	demonstrative pronoun
+<OPTION VALUE=PRO:indef>PRO:indef	indefinite pronoun
+<OPTION VALUE=PRO:num>PRO:num		numeral pronoun
+<OPTION VALUE=PRO:pers>PRO:pers	personal pronoun
+<OPTION VALUE=PRO:poss>PRO:poss	possessive pronoun
+<OPTION VALUE=PUN>PUN		non-sentence-final punctuation mark
+<OPTION VALUE=SENT>SENT		sentence-final punctuation mark
+<OPTION VALUE=VER2:fin>VER2:fin	finite form of modal/causal verb
+<OPTION VALUE=VER2:fin:cli>VER2:fin:cli	finite form of modal/causal verb with clitic
+<OPTION VALUE=VER2:geru>VER2:geru	gerundive form of modal/causal verb
+<OPTION VALUE=VER2:geru:cli>VER2:geru:cli	gerundive form of modal/causal verb with clitic
+<OPTION VALUE=VER2:infi>VER2:infi	infinitival form of modal/causal verb
+<OPTION VALUE=VER2:infi:cli>VER2:infi:cli	infinitival form of modal/causal verb with clitic
+<OPTION VALUE=VER2:ppast>VER2:ppast	past participle of modal/causal verb
+<OPTION VALUE=VER2:ppre>VER2:ppre	present participle of modal/causal verb
+<OPTION VALUE=VER:fin>VER:fin		finite form of verb
+<OPTION VALUE=VER:fin:cli>VER:fin:cli	finite form of verb with clitic
+<OPTION VALUE=VER:geru>VER:geru	gerundive form of verb
+<OPTION VALUE=VER:geru:cli>VER:geru:cli	gerundive form of verb with clitic
+<OPTION VALUE=VER:infi>VER:infi	infinitival form of verb
+<OPTION VALUE=VER:infi:cli>VER:infi:cli	infinitival form of verb with clitic
+<OPTION VALUE=VER:ppast>VER:ppast	past participle of verb
+<OPTION VALUE=VER:ppast:cli>VER:ppast:cli	past participle of verb with clitic
+<OPTION VALUE=VER:ppre>VER:ppre	present participle of verb
+<OPTION VALUE=WH>WH		wh word
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://sslmit.unibo.it/~baroni/collocazioni/itwac.tagset.txt" target="_blank">See the description of tagsets used by Marco Baroni</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

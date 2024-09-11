@@ -1,0 +1,19 @@
+
+1. identification of corpora: source+target language which is used
+--> identification of the database
+
+2. querying specific database; if necessary -- joining two outputs from dictionaries in different corpora...
+
+first attempt -- implementing straigtforward lookup, to take parameters from the form : hidden --> which dictionary to consult...
+
+
+====================
+
+highlighting terms found in target language :
+
+passing a list of selected items to cqpquery.pm --> function which selects TL translations;
+
+checking the list and highlighting the items...
+
+
+

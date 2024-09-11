@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Japanese POS tags</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="20" multiple>
+<OPTION VALUE=名詞>名詞	nouns including roots of verbal adjectives, 
+<OPTION VALUE=形容詞>形容詞	adjectives
+<OPTION VALUE=動詞>動詞	verbs
+<OPTION VALUE=副詞>副詞	adverbs
+<OPTION VALUE=感動詞>感動詞	interjections (hai) including greetings (ohayoo, arigatoo)
+<OPTION VALUE=接続詞>接続詞	conjunctions
+<OPTION VALUE=助詞>助詞	particles including case, adverbial and sentence-final particles
+<OPTION VALUE=接頭詞>接頭詞	prefixes (e.g. polite markers such as o-, go-)
+<OPTION VALUE=その他>その他	others (not suffixes or sentence-final particles)
+<OPTION VALUE=フィラー>フィラー	conversational fillers such as back channels 
+<OPTION VALUE=連体詞>連体詞	prenominals (e.g., kono, ano, dono)
+<OPTION VALUE=助動詞>助動詞	auxiliaries (e.g, -ta, -desu, -masu)
+<OPTION VALUE=記号>記号	symbols including alphabets, punctuation, space
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), ' ')">&nbsp;
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+The segmentation and tagging scheme as output by <a href="http://chasen.aist-nara.ac.jp/" target="_blank">Chasen</a>. Parameter files provided by <a href="http://sslmit.unibo.it/~baroni/" target="_blank">Marco Baroni</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>Chinese POS tags</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="poslist" size="20" multiple>
+<OPTION VALUE=n>普通名词: n	common noun
+<OPTION VALUE=nt>时间名词: nt	temporal noun
+<OPTION VALUE=nd>方位名词: nd	noun of locality (e.g. 下) 
+<OPTION VALUE=nl>处所名词: nl	location noun (e.g. 内地)
+<OPTION VALUE=nh>人名: nh	personal name
+<OPTION VALUE=ns>地名: ns	place name
+<OPTION VALUE=ni>团体、机构、组织的专名: ni	organization name
+<OPTION VALUE=nz>其它专名: nz    other proper nouns
+<OPTION VALUE=v>动词: v		verb
+<OPTION VALUE=a>形容词: a	adjective
+<OPTION VALUE=b>区别词: b		distinguishing word (e.g. 主要)
+<OPTION VALUE=d>副词: d       adverb
+<OPTION VALUE=m>数词: m		numeral         
+<OPTION VALUE=q>量词: q		measure word 
+<OPTION VALUE=r>代词: r		pronoun
+<OPTION VALUE=p>介词: p		preposition
+<OPTION VALUE=c>连词: c		conjunction
+<OPTION VALUE=e>叹词: e		interjection
+<OPTION VALUE=o>拟声词: o		onomatopoeic word
+<OPTION VALUE=u>助词: u	particles (e.g. 的，了)
+<OPTION VALUE=h>前接成分: h     prefix
+<OPTION VALUE=k>后接成分: k     suffix
+<OPTION VALUE=i>习用语: i		habitual language
+<OPTION VALUE=j>简称: j		abbreviation	
+<OPTION VALUE=g>语素字: g	alpha-numeric symbol
+<OPTION VALUE=x>非语素字: x	non-language symbol
+<OPTION VALUE=wp>标点: wp	punctuation
+<OPTION VALUE=ws>字符串: ws	string of symbols
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.poslist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://www.nlplab.cn" target="_blank">The segmentation and tagging scheme as output by NEUCSP</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+

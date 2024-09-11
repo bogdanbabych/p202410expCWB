@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>German morph features</TITLE>
+<STYLE>
+SELECT { font-family: Arial; font-size: 12pt; }
+</STYLE>
+<SCRIPT language="javascript" src="/jscript/grmselection.js">
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM>
+<CENTER>
+<select name="gramlist" size="20" multiple>
+
+<OPTION VALUE=FS>FS	Full stop punctuation marks
+<OPTION VALUE=SYM>SYM	Symbols
+<OPTION VALUE=ART>ART	Articles (un, las, la, unas)
+<OPTION VALUE=ADJ>ADJ	Adjectives (mayores, mayor)
+<OPTION VALUE=ADV>ADV	Adverbs (muy, demasiado, c´omo)
+<OPTION VALUE=ALFP>ALFP	Plural letter of the alphabet (As/Aes, bes)
+<OPTION VALUE=ALFS>ALFS	Singular letter of the alphabet (A, b)
+<OPTION VALUE=CARD>CARD	Cardinals
+<OPTION VALUE=CC>CC	Coordinating conjunction (y, o)
+<OPTION VALUE=CCAD>CCAD	Adversative coordinating conjunction (pero)
+<OPTION VALUE=CCNEG>CCNEG	Negative coordinating conjunction (ni)
+<OPTION VALUE=CODE>CODE	Alphanumeric code
+<OPTION VALUE=CQUE>CQUE	que (as conjunction)
+<OPTION VALUE=CSUBF>CSUBF	Subordinating conjunction that introduces finite clauses (apenas)
+<OPTION VALUE=CSUBI>CSUBI	Subordinating conjunction that introduces infinite clauses (al)
+<OPTION VALUE=CSUBX>CSUBX	Subordinating conjunction underspecified for subord-type (aunque)
+<OPTION VALUE=DM>DM	Demonstrative pronouns (´esas, ´ese, esta)
+<OPTION VALUE=FO>FO	Formula
+<OPTION VALUE=INT>INT	Interrogative pronouns (qui´enes, cu´antas, cu´anto)
+<OPTION VALUE=ITJN>ITJN	Interjection (oh, ja)
+<OPTION VALUE=NC>NC	Common nouns (mesas, mesa, libro, ordenador)
+<OPTION VALUE=NP>NP	Proper nouns
+<OPTION VALUE=NEG>NEG	Negation
+<OPTION VALUE=ORD>ORD	Ordinals (primer, primeras, primera)
+<OPTION VALUE=PAL>PAL	Portmanteau word formed by a and el
+<OPTION VALUE=PDEL>PDEL	Portmanteau word formed by de and el
+<OPTION VALUE=PE>PE	Foreign word
+<OPTION VALUE=PNC>PNC	Unclassified word
+<OPTION VALUE=PPX>PPX	Clitics and personal pronouns (nos, me, nosotras, te)
+<OPTION VALUE=PPO>PPO	Possessive pronouns (tuyas, tuya)
+<OPTION VALUE=PPO>PPO	Possessive pronouns (tuyas, tuya)
+<OPTION VALUE=PREP>PREP	Preposition
+<OPTION VALUE=PREPN>PREP	Negative preposition (sin)
+<OPTION VALUE=QU>QU	Quantifiers (sendas, cada)
+<OPTION VALUE=REL>REL	Relative pronouns (cuyas, cuyo)
+<OPTION VALUE=SE>SE	Se (as particle)
+<OPTION VALUE=VEfin>VEfin	Verb estar. Finite
+<OPTION VALUE=VEger>VEger	Verb estar. Gerund
+<OPTION VALUE=VEinf>VEinf	Verb estar. Infinitive
+<OPTION VALUE=VE>VE	Verb estar. Past participle
+<OPTION VALUE=VHfin>VHfin	Verb haber. Finite
+<OPTION VALUE=VHger>VHger	Verb haber. Gerund
+<OPTION VALUE=VHinf>VHinf	Verb haber. Infinitive
+<OPTION VALUE=VHadj>VHadj	Verb haber. Past participle
+<OPTION VALUE=VLfin>VLfin	Lexical verb. Finite
+<OPTION VALUE=VLger>VLger	Lexical verb. Gerund
+<OPTION VALUE=VLinf>VLinf	Lexical verb. Infinitive
+<OPTION VALUE=VLadj>VLadj	Lexical verb. Past participle
+<OPTION VALUE=VMfin>VMfin	Modal verb. Finite
+<OPTION VALUE=VMger>VMger	Modal verb. Gerund
+<OPTION VALUE=VMinf>VMinf	Modal verb. Infinitive
+<OPTION VALUE=VM>VM	Modal verb. Past participle
+<OPTION VALUE=VSfin>VSfin	Verb ser. Finite
+<OPTION VALUE=VSger>VSger	Verb ser. Gerund
+<OPTION VALUE=VSinf>VSinf	Verb ser. Infinitive
+<OPTION VALUE=VS>VS	Verb ser. Past participle
+</select>
+</CENTER>
+<CENTER>
+<BR>
+<P>
+&nbsp; 
+<INPUT type="button" value="OK" onclick="collect('/', getSelectedTexts(this.form.gramlist), '')">&nbsp; 
+<INPUT type="button" value="Reset" onclick='this.form.reset()'>&nbsp;
+<INPUT type="button" value="Cancel" onclick='window.close()'>&nbsp; 
+<p>
+<a href="http://arxiv.org/PS_cache/cmp-lg/pdf/9406/9406023.pdf" target="_blank">See the description of tagsets used in CRATER, with simplifications by Helmut Schmid</a>.
+</CENTER>
+</FORM>
+
+
+</BODY>
+</HTML>
+
