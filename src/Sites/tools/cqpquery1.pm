@@ -147,14 +147,21 @@ sub showconcordance {
 	    ## getting the structural attribute "segment" ########## 2009-03-17 ###########
 	    ## 
 	    if ($segmentattr){
+			# print STDOUT qq{ \n segmentattr = $segmentattr \n };
 	    	$segmentXstruc = $segmentattr->cpos2struc($cpos);
 	    	($startX, $endX) = $segmentattr->struc2cpos($segmentXstruc);
 	    	$segmX = getannotatedwordsStructAttrib($startX, $endX);
+			# 
+			# print STDOUT qq{ \n segmX = $segmX \n };
+
 	    	if($segmX =~ m/$match/){
+				# print STDOUT qq{ \n match = $match \n<br>\n };
+
 	    		$matchXStart = $-[0];
 	    		$matchXEnd = $+[0];
 	    		$leftX = substr($segmX, 0, $matchXStart);
 	    		$rightX = substr($segmX, $matchXEnd);
+				# print STDOUT qq{ \n $leftX = $match = $rightX <br>\n };
 	    		
 	    	}else{
 	    		$leftX = $left;
@@ -168,6 +175,7 @@ sub showconcordance {
 	    }else{
 	    	$segment = "<td>$left <strong>$match</strong> $right</td>";    	
 	    }
+		# print STDOUT qq{ \n s = $segment <br>\n };
 	    ##
 	    ## end: getting structural attribute "segment"
 		## end: insert segment-level presentation of the concordance lines here : 2024-09-17
@@ -226,7 +234,9 @@ sub showconcordance {
 		    if ($showhorizontal) {
 			print STDOUT "<tr>",prefixline($_,$titleid),$concline,"</tr>\n",$fulltransline;
 		    } else { #several translations in one row
-			print STDOUT "<tr>",prefixline($_,$titleid),"<td>$left <strong>$match</strong> $right</td>", $fulltransline,"</tr>\n";
+			# print STDOUT "<tr>",prefixline($_,$titleid),"<td>$left <strong>$match</strong> $right</td>", $fulltransline,"</tr>\n";
+			# print STDOUT "<tr>",prefixline($_,$titleid),"<td>$left <strong>$match</strong> $right</td>", $fulltransline,"</tr>\n";
+			print STDOUT "<tr>",prefixline($_,$titleid),$segment, $fulltransline,"</tr>\n"; # segment-level translation 2024-09-17
 		    };
 		} else { #each concordance line is separate
 		    $outputline=prefixline($_,$titleid).$concline;
