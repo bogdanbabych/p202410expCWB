@@ -139,39 +139,9 @@ sub showconcordance {
 
 	    $left=getannotatedwords($cpos,-1,-$contextsizewords,$charsize);
 	    $right=getannotatedwords($matchend,1,$contextsizewords,$charsize);
-	    if ($curlang eq 'ar') { # treatment of Arabic: right to left
+	    if ($curlang eq 'ar') {
 		($left,$right)=($right,$left);
 	    };
-
-		## begin: insert segment-level presentation of the concordance lines here : 2024-09-17
-	    ## getting the structural attribute "segment" ########## 2009-03-17 ###########
-	    ## 
-	    if ($segmentattr){
-	    	$segmentXstruc = $segmentattr->cpos2struc($cpos);
-	    	($startX, $endX) = $segmentattr->struc2cpos($segmentXstruc);
-	    	$segmX = getannotatedwordsStructAttrib($startX, $endX);
-	    	if($segmX =~ m/$match/){
-	    		$matchXStart = $-[0];
-	    		$matchXEnd = $+[0];
-	    		$leftX = substr($segmX, 0, $matchXStart);
-	    		$rightX = substr($segmX, $matchXEnd);
-	    		
-	    	}else{
-	    		$leftX = $left;
-	    		$rightX = $right;
-	    		
-	    	}
-	    	
-	    	# $segment = "<td>$left <strong>$match</strong> $right</td><td>cpos=$cpos;start=$startX;end=$endX; $segmX</td>";
-	    	# $segment = "<td>$leftX <strong>$match</strong> $rightX</td><td>cpos=$cpos;start=$startX;end=$endX; $segmX</td>";
-	    	$segment = "<td>$leftX <strong>$match</strong> $rightX</td>";
-	    }else{
-	    	$segment = "<td>$left <strong>$match</strong> $right</td>";    	
-	    }
-	    ##
-	    ## end: getting structural attribute "segment"
-		## end: insert segment-level presentation of the concordance lines here : 2024-09-17
-
 	    if ($broadview) {
 		$titleid=gettitle($titleattr,$titleidattr,$cpos); 
 		print STDOUT qq{<p class="contextpar"> <strong>$titleid</strong><br>$left $match $right</p>\n};
@@ -347,8 +317,6 @@ sub makecorpusattrs {
 	$posattr = $clcorpus->attribute("pos", 'p') || $wordattr; 
 	$titleattr = $clcorpus->attribute("text",'s');
 	$titleidattr = $clcorpus->attribute("text_id",'s');
-	$segmentattr = $clcorpus->attribute("s",'s'); # added segment attribute 2024-09-17
-	# $segmentattr = $clcorpus->attribute("seg",'s');
     } else {
 	cqperror("Can't access corpus $corpusname") unless (defined $clcorpus);
     }
@@ -534,31 +502,6 @@ sub getannotatedwords {
     };
     return $out;
 }
-
-sub getannotatedwordsStructAttrib{
-    my ($start,$end)=@_;
-    my $out='';
-    my $outlength=0;
-    # my $wordsize=abs($end-$start);
-    for my $offset ($start..$end) { 
-	# my $i=$cpos+signint($end)*$offset+$start;
-	# my $m.=cleantags(getattrpos($i,$wordattr));
-	my $m.=cleantags(getattrpos($offset,$wordattr));
-	$m=' '.$m unless $m=~/^$punctuationmarks$/;
-	$outlength+=length($m);
-	
-	my $lemma=getattrpos($offset,$lemmaattr);
-	my $pos=getattrpos($offset,$posattr);
-	$m=qq{<span title="$lemma/$pos">$m</span>};
-	if ($end<0) {
-	    $out=$m.$out;
-	} else {
-	    $out.=$m;
-	}
-    };
-    return $out;	
-}
-
 
 sub getwords {
     my ($cpos,$start,$end)=@_;
