@@ -2,7 +2,7 @@
 document.write('<div class="optionbox">');
 document.write('<h2><input type="radio" name="searchtype" value="conc" checked /> Concordance</h2>');
 document.write('  <p>');
-document.write('    <strong>Context</strong>:&nbsp;<input type="text" name="contextsize" size="3" value="200c" /> (c for characters, w for words)<br />');
+document.write('    <strong>Context</strong>:&nbsp;<input type="text" name="contextsize" size="3" value="60c" /> (c for characters, w for words)<br />');
 document.write('    <br />');
 document.write('    <strong>Sort by</strong>:');
 document.write('    &nbsp;<input type="radio" name="sort1" value="document" />Document');
