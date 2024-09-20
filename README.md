@@ -685,5 +685,81 @@ size (tokens):  51376596
 ```  
 (adjust the path to the script file)
 
+The result -- both registry files will change. For example, the German registry file will look like this:
+
+~~~
+##
+## registry entry for corpus DEMO-EUROPARL-ENDE-DE
+##
+
+# long descriptive name for the corpus
+NAME ""
+# corpus ID (must be lowercase in registry!)
+ID   demo-europarl-ende-de
+# path to binary data files
+HOME /Users/bogdan/corpora/demo-europarl-ende-de
+# optional info file (displayed by "info;" command in CQP)
+INFO /Users/bogdan/corpora/demo-europarl-ende-de/.info
+
+# corpus properties provide additional information about the corpus:
+##:: charset  = "utf8" # character encoding of corpus data
+##:: language = "??"     # insert ISO code for language (de, en, fr, ...)
+
+
+##
+## p-attributes (token annotations)
+##
+
+ATTRIBUTE word
+ATTRIBUTE pos
+ATTRIBUTE lemma
+
+
+##
+## s-attributes (structural markup)
+##
+
+# <s> ... </s>
+STRUCTURE s                    # [annotations]
+
+
+# Yours sincerely, the Encode tool.
+ALIGNED demo-europarl-ende-en
+~~~
+
+-- note the last line, which indicates alignment
+
+
+##### D.2.6. Run the alignment script (might take a few minutes)
+
+
+- Finally, run the cwb alignment script:
+
+``` /Users/bogdan/elisp/proj/p202410expCWB/corpora101/stage04compile-parallel/align-cwb.sh demo-europarl-ende-en demo-europarl-ende-de
+ ```
+
+(adjust the path to the script)
+
+The screen output will be:
+
+~~~
+aligning demo-europarl-ende-en demo-europarl-ende-de
+
+
+~~~
+
+The result -- alx files will be created in the data directory, e.g.:
+
+```demo-europarl-ende-en.alx```
+
+All scripts are in the directory
+
+```/Users/bogdan/elisp/proj/p202410expCWB/corpora101/example-scripts-parallel-europarl```
+
+
+##### D.2.7. Finally, add the refernces into your html file
+
+
+
 
 

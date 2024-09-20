@@ -1,0 +1,1 @@
+python3 /Users/bogdan/elisp/proj/p202410expCWB/corpora101/stage03parallel-tmx/st0302lines2segments4tagging/005genFilesSegID.py demo-europarl-de-en-lines.txt demo-europarl-de-en-lang-
