@@ -472,3 +472,63 @@ demo-emea-en-demo-emea-de.align: No such file or directory
 cwb-align-encode: can't read file demo-emea-en-demo-emea-de.align
 
 ~~~
+
+
+##### D.2.1. Downloading a parallel corpus in tmx format
+
+This is an example of connecting Europarl corpus to the infrastructure.
+
+- Download the corpus from https://object.pouta.csc.fi/OPUS-Europarl/v8/tmx/de-en.tmx.gz
+
+- Extract it: ``` gunzip de-en.tmx.gz ```
+
+##### D.2.2. Extracting lines from the tmx file
+
+- in the download directory run  
+``` /Users/bogdan/elisp/proj/p202410expCWB/corpora101/stage03parallel-tmx/st0301extract-text-from-tmx/extract-pairwise2.py de-en.tmx >demo-europarl-de-en-lines.txt ```
+
+(adjusting the absolute or relative path for your source directory)
+
+- the input looks like:
+
+~~~
+<?xml version="1.0" encoding="UTF-8" ?>
+<tmx version="1.4">
+<header creationdate="Sat Jun 29 17:46:50 2019"
+          srclang="de"
+          adminlang="de"
+          o-tmf="unknown"
+          segtype="sentence"
+          creationtool="Uplug"
+          creationtoolversion="unknown"
+          datatype="PlainText" />
+  <body>
+    <tu>
+      <tuv xml:lang="de"><seg>Ich erkläre die am Freitag, dem 17. Dezember unterbrochene Sitzungsperiode des Europäischen Parlaments für wiederaufgenommen, wünsche Ihnen nochmals alles Gute zum Jahreswechsel und hoffe, daß Sie schöne Ferien hatten.</seg></tuv>
+      <tuv xml:lang="en"><seg>I declare resumed the session of the European Parliament adjourned on Friday 17 December 1999, and I would like once again to wish you a happy new year in the hope that you enjoyed a pleasant festive period.</seg></tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="de"><seg>Wie Sie feststellen konnten, ist der gefürchtete "Millenium-Bug " nicht eingetreten. Doch sind Bürger einiger unserer Mitgliedstaaten Opfer von schrecklichen Naturkatastrophen geworden.</seg></tuv>
+      <tuv xml:lang="en"><seg>Although, as you will have seen, the dreaded 'millennium bug' failed to materialise, still the people in a number of countries suffered a series of natural disasters that truly were dreadful.</seg></tuv>
+    </tu>
+    <tu>
+      <tuv xml:lang="de"><seg>Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitzungsperiode in den nächsten Tagen.</seg></tuv>
+      <tuv xml:lang="en"><seg>You have requested a debate on this subject in the course of the next few days, during this part-session.</seg></tuv>
+    </tu>
+
+~~~
+
+
+- the output should look like:
+
+~~~
+de 	Ich erkläre die am Freitag, dem 17. Dezember unterbrochene Sitzungsperiode des Europäischen Parlaments für wiederaufgenommen, wünsche Ihnen nochmals alles Gute zum Jahreswechsel und hoffe, daß Sie schöne Ferien hatten.
+en 	I declare resumed the session of the European Parliament adjourned on Friday 17 December 1999, and I would like once again to wish you a happy new year in the hope that you enjoyed a pleasant festive period.
+
+de 	Wie Sie feststellen konnten, ist der gefürchtete "Millenium-Bug " nicht eingetreten. Doch sind Bürger einiger unserer Mitgliedstaaten Opfer von schrecklichen Naturkatastrophen geworden.
+en 	Although, as you will have seen, the dreaded 'millennium bug' failed to materialise, still the people in a number of countries suffered a series of natural disasters that truly were dreadful.
+
+de 	Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitzungsperiode in den nächsten Tagen.
+en 	You have requested a debate on this subject in the course of the next few days, during this part-session.
+~~~
+
