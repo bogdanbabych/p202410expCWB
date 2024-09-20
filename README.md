@@ -558,6 +558,48 @@ Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitzungs
 
 ~~~
 
+##### D.2.2. Run a tagging tool (TreeTagger, Stanza/Spacy, TNT, etc)
+
+- You will need to create a .vert file with 3 columns -- word, pos, lemma using one of these tools.
+
+- for TreeTagger, you can run the following from the TreeTagger /bin/ directory (adjust the paths to the files):
+
+~~~
+# run from the bin/ Tree tagger directory
+./tree-tagger-german-utf8.sh </Users/bogdan/corpora-sourse/europarl-en-de/demo-europarl-de-en-lang-de.txt >/Users/bogdan/corpora-sourse/europarl-en-de/demo-europarl-de-en-lang-de.vert
+./tree-tagger-english-utf8.sh </Users/bogdan/corpora-sourse/europarl-en-de/demo-europarl-de-en-lang-en.txt >/Users/bogdan/corpora-sourse/europarl-en-de/demo-europarl-de-en-lang-en.txt
+~~~
+
+The output should look like this:
+
+~~~
+
+<s id=1000001>
+Ich	PPER	ich
+erkläre	VBFIN	erklären
+die	ART	die
+am	APPRART	an
+Freitag	NN	Freitag
+,	$,	,
+dem	PRELS	die
+17	CARD	17
+.	$.	.
+Dezember	NN	Dezember
+unterbrochene	ADJA	unterbrochen
+Sitzungsperiode	NN	Sitzungsperiode
+des	ART	die
+Europäischen	ADJA	europäisch
+Parlaments	NN	Parlament
+für	APPR	für
+wiederaufgenommen	VBPP	wiederaufnehmen
+,	$,	,
+wünsche	VBFIN	wünschen
+
+
+~~~
+
+(note that the segment id tags are preserved)
+
 
 
 
