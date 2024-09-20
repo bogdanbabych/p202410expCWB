@@ -532,3 +532,34 @@ de 	Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitz
 en 	You have requested a debate on this subject in the course of the next few days, during this part-session.
 ~~~
 
+##### D.2.2. Create monolingual files with segment IDs for tagging
+
+- Run the script to create monolingual files for processing with TreeTagger or stanza/spacy:
+``` python3 /Users/bogdan/elisp/proj/p202410expCWB/corpora101/stage03parallel-tmx/st0302lines2segments4tagging/005genFilesSegID.sh demo-europarl-de-en-lines.txt demo-europarl-de-en-lang- ```
+
+
+(adjust absolute or relative path to the script accordingly)
+
+Note: If the input file is in Moses format, this stage needs to be adjusted to create segment IDs from Moses input.
+
+
+The output of the stage (for German) should look like:
+
+~~~
+<s id=1000001>
+Ich erkläre die am Freitag, dem 17. Dezember unterbrochene Sitzungsperiode des Europäischen Parlaments für wiederaufgenommen, wünsche Ihnen nochmals alles Gute zum Jahreswechsel und hoffe, daß Sie schöne Ferien hatten.
+</s>
+<s id=1000002>
+Wie Sie feststellen konnten, ist der gefürchtete "Millenium-Bug " nicht eingetreten. Doch sind Bürger einiger unserer Mitgliedstaaten Opfer von schrecklichen Naturkatastrophen geworden.
+</s>
+<s id=1000003>
+Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitzungsperiode in den nächsten Tagen.
+</s>
+
+~~~
+
+
+
+
+
+
