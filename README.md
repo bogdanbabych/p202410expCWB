@@ -558,7 +558,7 @@ Im Parlament besteht der Wunsch nach einer Aussprache im Verlauf dieser Sitzungs
 
 ~~~
 
-##### D.2.2. Run a tagging tool (TreeTagger, Stanza/Spacy, TNT, etc)
+##### D.2.3. Run a tagging tool (TreeTagger, Stanza/Spacy, TNT, etc)
 
 - You will need to create a .vert file with 3 columns -- word, pos, lemma using one of these tools.
 
@@ -600,8 +600,90 @@ wünsche	VBFIN	wünschen
 
 (note that the segment id tags are preserved)
 
+.vert files are compled an aligned with the cwb tools
 
 
+##### D.2.4. Compile both corpora, create alignment attributes
+
+- create the data directories for BOTH monolingual corpora, e.g.:
+
+~~~
+mkdir /Users/bogdan/corpora/demo-europarl-ende-en
+mkdir /Users/bogdan/corpora/demo-europarl-ende-de
+~~~
+
+
+- run the cwb corpus compilation tools from .vert sources
+
+~~~
+cwb-encode -d /Users/bogdan/corpora/demo-europarl-ende-en -xsBC9 -c utf8 -R /opt/homebrew/share/cwb/registry/demo-europarl-ende-en -P pos -P lemma -V s <demo-europarl-de-en-lang-en.vert
+cwb-make -M 800 demo-europarl-ende-en
+cwb-describe-corpus demo-europarl-ende-en
+
+cwb-encode -d /Users/bogdan/corpora/demo-europarl-ende-de -xsBC9 -c utf8 -R /opt/homebrew/share/cwb/registry/demo-europarl-ende-de -P pos -P lemma -V s <demo-europarl-de-en-lang-de.vert
+cwb-make -M 800 demo-europarl-ende-de
+cwb-describe-corpus demo-europarl-ende-de
+
+~~~
+
+- the output on the screen will be:
+
+
+~~~
+
+============================================================
+Corpus: demo-europarl-ende-en
+============================================================
+
+description:
+registry file:  /opt/homebrew/share/cwb/registry/demo-europarl-ende-en
+home directory: /Users/bogdan/corpora/demo-europarl-ende-en/
+info file:      /Users/bogdan/corpora/demo-europarl-ende-en/.info
+encoding:       utf8
+size (tokens):  53914520
+
+  3 positional attributes:
+      word            pos             lemma
+
+  1 structural attributes:
+      s
+
+  0 alignment  attributes:
+
+
+
+============================================================
+Corpus: demo-europarl-ende-de
+============================================================
+
+description:
+registry file:  /opt/homebrew/share/cwb/registry/demo-europarl-ende-de
+home directory: /Users/bogdan/corpora/demo-europarl-ende-de/
+info file:      /Users/bogdan/corpora/demo-europarl-ende-de/.info
+encoding:       utf8
+size (tokens):  51376596
+
+  3 positional attributes:
+      word            pos             lemma
+
+  1 structural attributes:
+      s
+
+  0 alignment  attributes:
+
+
+~~~
+
+- this means that the monolingual corpora has been created successfully, but they are still not aligned
+
+
+##### D.2.5. Create the alignment attributes for the corpora
+
+- You just need to add the 'alignment' attribute to each register file. To do this, run:
+
+```/Users/bogdan/elisp/proj/p202410expCWB/corpora101/stage04compile-parallel/align-cwb-cp2reg.sh demo-europarl-ende-en demo-europarl-ende-de
+```  
+(adjust the path to the script file)
 
 
 
