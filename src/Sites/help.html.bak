@@ -48,6 +48,22 @@ To specify a gap between words, you can use two dots: ...  For example, <i>make%
 
 <h2>Language-specific lemmatisation issues</h2>
 
+Usually, lemmatisation and POS tagging is reliable, but in some cases it might be 
+
+In Russian the search for
+all forms of the expression <i>ложная тревога</i> should use the query
+term
+<i>ложный% тревога%</i> (a sequence of two lemmas).  Remember that this is
+a short-hand for the full CQP query:<br>
+[lemma="ложный"] [lemma="тревога"]
+
+<p>Lemmatisation in Russian also assumes the mapping between closely
+related aspectual pairs.  The corpus has no lemma like
+<i>повернуть</i>, because its lemma is <i>поворачивать</i>.  Another
+by-product of lemmatisation is that all lemmas in English and Russian
+corpora are in the lower case (you will search for <i>moscow</i> and
+<i>москва</i>).  
+
 <p><b>Warning</b> In the German corpus, capital letters in lemmas are
 important, because they can help in disambiguation: <i>Denken</i>
 vs. <i>denken</i>.  Therefore lemmatisation in German does little case folding.
@@ -67,17 +83,19 @@ Corpus Query Processor, refer to <a href="http://www.ims.uni-stuttgart.de/projek
 the CQP Manual</a> for the full description of the query language, for
 instance, if you want to specify conditions on word order or restrict
 morphological properties of words in your query.  The values of
-morphological properties for English and German words can be selected
+morphological properties for English and Russian words can be selected
 by clicking on respective links and choosing values from the popup
 windows.  Morphological codes will be added to the query string, but
 ensure that your query conforms to <a href="http://www.ims.uni-stuttgart.de/projekte/CorpusWorkbench/CQPUserManual/HTML/">
 the CQP syntax</a>. The interface simply adds strings like
 <pre>
 [pos="NNS"]
+[pos="A.*,род.*"]
 </pre>
 to the query string, so, if you need to combine the POS and lemma conditions manually:
 <pre>
 [lemma="promt" & pos="JJ"]
+[lemma="стакан" & pos=".*род.*"]
 </pre>
 <p><b>Warning</b> Because of limitations of the Corpus WorkBench, if
 your query starts with a frequent word (such as a particle or a
@@ -87,12 +105,57 @@ an "den" Hals w&uuml;nschen</i>, but not
 <i><b>den</b> Tod an "den" Hals w&uuml;nschen</i>, because the
 Corpus WorkBench will not return any result for the latter.
 <p>
-
-    <!--
+Morphological features in the Russian fiction corpus have been
+manually corrected, so morphological codes in it are reliable. The Russian  newscorpora and the Internet corpus has been processed automatically by 
+<a href="http://corpora.narod.ru/mystem/">mystem</a>, so it contains many
+ambiguities; for instance, книги is always analysed as sing,gen;
+adverbs derived from adjectives (трудно) are always analysed as
+adjectival forms (трудный).  Thus, it is not possible to rely on
+morphological codes in other Russian corpora.
+<!--
 The BNC corpus (used as a
 reference for Reuters texts) includes morphological tags from the BNC
 World Edition from 2000, but it has been lemmatised using <a href="/tools/tools.html">custom tools</a>.
 -->
+<p>
+<a name="transliterate"></a>If you want to query the Russian corpus without a Cyrillic
+keyboard, you can use transliteration according to the following table:
+<pre>
+'а' => 'a',
+'б' => 'b',
+'в' => 'v',
+'г' => 'g',
+'д' => 'd',
+'е' => 'e',
+'ж' => 'zh',
+'з' => 'z',
+'и' => 'i',
+'й' => 'j',
+'к' => 'k',
+'л' => 'l',
+'м' => 'm',
+'н' => 'n',
+'о' => 'o',
+'п' => 'p',
+'р' => 'r',
+'с' => 's',
+'т' => 't',
+'у' => 'u',
+'ф' => 'f',
+'х' => 'x',
+'ц' => 'c',
+'ч' => 'ch',
+'ш' => 'sh',
+'щ' => 'w',
+'ъ' => 'qh',
+'ы' => 'y',
+'ь' => 'q',
+'э' => 'eh',
+'ю' => 'ju',
+'я' => 'ja',
+</pre>
+<p>
+(the same transliteration scheme as in <a href="http://www.sfb441.uni-tuebingen.de/b1/en/korpora.html">the T&uuml;bingen interface to the Uppsala corpus</a>)
 
 <p>
 You can sort the output of your query according to its left or right context.  
@@ -109,13 +172,15 @@ context as follows (first <i>go</i>, then <i>going</i>, then <i>went</i>):
 <TD ALIGN=RIGHT nowrap>. After a short interview with the BBC , Cliff </TD><TD nowrap> <b>went </b> </TD><TD nowrap>to meet ACET client Tony Chapman at his home , </TD></TR></tbody></table>
 <p>
 The output ends with a set of basic translation equivalents for words in the query.
-Every word in the list of translation equivalents links to a new query.
+The facility is based on the English-Russian dictionary developed by <a href="http://www.multitran.ru">Multitran</a>,
+thanks to the Multitran development team, especially to Andrei Pominov.  Every word in the list of
+translation equivalents links to a new query.
 <p>
 The option <b>Collocation statistics</b> allows you to calculate the most significant collocates (using log-likelihood, mutual information or T score) for the left or right neighbour of your query; for the definitions see <a href="http://nlp.stanford.edu/fsnlp/promo/colloc.pdf">Chapter 5 "Collocations"</a> from Christopher Manning, Hinrich Sch&uuml;tze, <a href="http://nlp.stanford.edu/fsnlp/">Foundations of Statistical Natural Language Processing</a>. Cambridge, MA: MIT Press. 1999.
 <p>
 The option <b>Word similarity search</b> allows you to find semantic classes for some lines in the output of your query.  This is based on <a href="http://www.fask.uni-mainz.de/user/rapp/">Reinhard Rapp's procedure</a> using
 <a href="http://www.cs.utk.edu/~berry/projects.html">Singular Value Decomposition</a> (SVD).
 <p>
-<a href="./wissen-im-kontext-v01.html" target="_self">Back to the list of corpora</a>
+<a href="/list.html" target="_self">Back to the list of corpora</a>
 </BODY>
 </HTML>

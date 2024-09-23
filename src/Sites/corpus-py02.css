@@ -1,0 +1,91 @@
+STYLE typetextcss
+    body {
+      min-width: 800px;
+      text-align: center;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 0;
+      border: 1px solid;
+      border-color: #663;
+      font: small/1.4 Arial, Verdana, Helvetica, sans-serif;
+    }
+    #website {
+      color: #000;
+      margin: 20px;
+      text-align: left;
+      font-size: small/1.4;
+      min-width: 800px;
+      width: 90%;
+    }
+    table, input, select {
+      font-family: Arial;
+      font-size: small/1.4;
+    }
+    table {
+      border: none;
+      border-spacing: 1px;
+      border-color: #000;
+      background-color: #fff;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    tbody td{
+      border-right: 1px solid;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-color: #999;
+    }
+    td.lex {
+      background-color: #00bfff; 
+    }
+    td.gram {
+      background-color: #00ffbf;
+    }
+    tr.oper td {
+      background-color: yellow;
+    }
+    .optionbox {
+      border: 1px solid;
+      border-color: #663;
+      background-color: #dcdcdc;
+      margin: 10px;
+      padding: 5px;
+    }
+    .submitbox {
+      width: 600px;
+      border: 1px solid;
+      border-color: #663;
+      background-color: #dcdcdc;
+      margin-top: 10px;
+      margin-right: auto;
+      padding: 5px;
+      text-align: center;
+    }
+    .centered {
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.5 em;
+      margin: 0;
+      padding: 0;
+    }
+    h3 {
+      font-size: 1 em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    strong.matched {
+      color: #f00;
+      font-weight: bold;
+      font-size: small/1.4;
+    }
+    p.contextpar {
+      text-align: left;
+      border: 1px solid;
+      border-color: #663;
+      background-color: #dcdcdc;
+      margin: 10px;
+      padding: 5px;
+    }
